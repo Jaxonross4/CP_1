@@ -68,3 +68,36 @@ form.addEventListener("submit", (e) => {
   form.reset();
   [nameEl, emailEl, comEl].forEach(setCount);
 });
+
+function isField(el) {
+  return el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA");
+}
+
+function setCount(el) {
+  const holder = el.parentElement.querySelector(".count");
+  if (holder) holder.textContent = String(el.value.length);
+}
+
+function required(el) {
+  const good = el.value.trim().length > 0;
+  const msg = el.parentElement.querySelector(".msg");
+  if (msg) msg.hidden = good;
+  return good;
+}
+
+function addEntry({ name, email, comments }) {
+  const box = document.createElement("div");
+  box.className = "item";
+  box.innerHTML = `
+    <strong>${escape(name)}</strong> <span style="color:#777">(${escape(email)})</span>
+    <div>${escape(comments)}</div>
+  `;
+  feed.appendChild(box);
+}
+
+function escape(s) {
+  return s.replace(/[&<>"']/g, (c) => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[c]));
+}
+
