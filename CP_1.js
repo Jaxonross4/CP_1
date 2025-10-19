@@ -22,3 +22,7 @@ form.addEventListener("input", (e) => {
   setCount(t);
 });
 
+form.addEventListener("keydown", (e) => {
+  if (e.ctrlKey && e.key === "Enter") form.requestSubmit();
+});
+
