@@ -8,3 +8,29 @@
 <body>
   <main>
     <h1>Quick Feedback</h1> 
+
+    <form id="form">
+      <label>
+        Name
+        <input id="name" type="text" data-hint="Your full name">
+        <span class="count">0</span>
+        <small class="msg" hidden>required</small>
+      </label>
+
+      <label>
+        Email
+        <input id="email" type="email" data-hint="example@site.com">
+        <span class="count">0</span>
+        <small class="msg" hidden>required</small>
+      </label>
+
+      <label>
+        Comments
+        <textarea id="comments" rows="4" data-hint="Up to 300 characters"></textarea>
+        <span class="count">0</span>
+        <small class="msg" hidden>required</small>
+      </label>
+
+      <button type="submit">Send</button>
+    </form>
+    
