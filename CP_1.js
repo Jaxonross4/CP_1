@@ -45,3 +45,26 @@ form.addEventListener("mousemove", (e) => {
   tip.style.left = (e.clientX + 10) + "px";
   tip.style.top  = (e.clientY + 10) + "px";
 });
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const nameEl = document.getElementById("name");
+  const emailEl = document.getElementById("email");
+  const comEl = document.getElementById("comments");
+
+  const okName = required(nameEl);
+  const okEmail = required(emailEl);
+  const okCom = required(comEl);
+
+  if (!okName || !okEmail || !okCom) return;
+
+  addEntry({
+    name: nameEl.value.trim(),
+    email: emailEl.value.trim(),
+    comments: comEl.value.trim()
+  });
+
+  form.reset();
+  [nameEl, emailEl, comEl].forEach(setCount);
+});
