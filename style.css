@@ -1,0 +1,12 @@
+* { box-sizing: border-box; }
+body { font-family: system-ui, Arial, sans-serif; margin: 24px; }
+label { display: block; margin: 12px 0; }
+input, textarea { width: 100%; padding: 8px; }
+button { padding: 8px 12px; cursor: pointer; }
+.count { font-size: 12px; margin-left: 6px; color: #666; }
+.msg { color: #b00020; margin-left: 8px; }
+#feed .item { border: 1px solid #ddd; padding: 8px; margin: 8px 0; }
+#tip {
+  position: fixed; background:#111; color:#fff; padding:6px 8px; font-size:12px;
+  border-radius:4px; pointer-events:none;
+}
