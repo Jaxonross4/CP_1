@@ -10,3 +10,15 @@ document.body.addEventListener("click", () => {});
 
 // stop background from seeing form clicks
 form.addEventListener("click", (e) => e.stopPropagation());
+
+// delegate typing to update counts and enforce max for comments
+form.addEventListener("input", (e) => {
+  const t = e.target;
+  if (!isField(t)) return;
+
+  if (t.id === "comments" && t.value.length > MAX) {
+    t.value = t.value.slice(0, MAX);
+  }
+  setCount(t);
+});
+
